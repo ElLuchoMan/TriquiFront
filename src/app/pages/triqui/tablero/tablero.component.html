@@ -1,0 +1,12 @@
+<h1>Triqui</h1>
+<hr>
+<h3>Jugador: {{ jugador }} </h3>
+<button nbButton outline status="success" (click)="nuevoJuego()">Limpiar</button>
+<button nbButton outline status="danger" class="volver" (click)="cerrarCesion()">Volver</button>
+<h3 *ngIf="ganador">
+    {{ ganador | uppercase}} ha ganado!
+</h3>
+<main>
+    <app-cuadro *ngFor="let cuadro of cuadros; let i = index" [ficha]="cuadro" (click)="marcar(i)">
+    </app-cuadro>
+</main>

@@ -1,0 +1,3 @@
+<button nbButton *ngIf="!ficha">{{ficha}}</button>
+<button nbButton hero status="info" *ngIf="ficha == 'X'">{{ ficha }}</button>
+<button nbButton hero status="danger" *ngIf="ficha == 'O'">{{ ficha }}</button>

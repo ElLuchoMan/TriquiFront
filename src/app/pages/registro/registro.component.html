@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="abs-center">
+
+        <form [formGroup]="registro" (ngSubmit)="registrar()" class="border p-3 form" autocomplete="off">
+            <h1 class="h3 mb-4 mt-2">Registro</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control mb-2" formControlName="nombre" id="nombre"
+                            placeholder="Nombre">
+                        <label for="nombre">Nombre</label>
+                        <span *ngIf="campoNoValido('nombre')" class="form-text text-danger">El nombre es
+                            obligatorio</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control mb-2" formControlName="apellido" id="apellido"
+                            placeholder="Apellido">
+                        <label for="apellido">Apellido</label>
+                        <span *ngIf="campoNoValido('documento')" class="form-text text-danger">El apellido es
+                            obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select mb-2" id="tipoDocumento" formControlName="tipoDocumento"
+                            placeholder="Tipo de Documento">
+                            <option selected> Tipo de Documento</option>
+                            <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                            <option value="Cédula Extranjería">Cédula Extranjería</option>
+                            <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="Registro Civil">Registro Civil</option>
+                        </select>
+                        <label for="tipoDocumento">Tipo de Documento</label>
+                        <span *ngIf="campoNoValido('tipoDocumento')" class="form-text text-danger">Debe seleccionar el
+                            tipo
+                            de documento </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control mb-2" formControlName="documento" id="documento"
+                            placeholder="Documento">
+                        <label for="documento">Documento</label>
+                        <span *ngIf="campoNoValido('documento')" class="form-text text-danger">El documento es
+                            obligatorio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating">
+                        <input type="text" class="form-control mb-2" formControlName="correo" id="correo"
+                            placeholder="Correo">
+                        <label for="correo">Correo</label>
+                        <span *ngIf="campoNoValido('correo')" class="form-text text-danger"> {{emailErrorMsg}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating">
+                        <input type="password" class="form-control mb-2" formControlName="password" id="password"
+                            placeholder="Contraseña">
+                        <label for="password">Contraseña</label>
+                        <span *ngIf="campoNoValido('password')" class="form-text text-danger">Contraseña debe contener
+                            entre 5 y 10 caracteres</span>
+                    </div>
+                </div>
+            </div>
+            <button class="w-100 btn btn-primary mb-3" type="submit" [disabled]="registro.invalid">Registrar</button>
+            <label>
+                ¿Ya tienes una cuenta?
+            </label>
+            <button type="button" class="btn btn-link ms-2 me-2" routerLink="/login">Inicia Sesión</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="abs-center">
+        <form [formGroup]="login" class="border p-3 form" autocomplete="off">
+            <h1 class="h3 mb-4 mt-2">Login</h1>
+            <div class="form-floating">
+                <input type="email" class="form-control mb-2" formControlName="correo" id="correo"
+                    placeholder="name@example.com">
+                <label for="correo">Correo</label>
+                <span *ngIf="campoNoValido('correo')" class="form-text text-danger"> {{emailErrorMsg}}</span>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control mb-2" formControlName="password" id="Password"
+                    placeholder="Contraseña">
+                <label for="Password">Contraseña</label>
+                <span *ngIf="campoNoValido('password')" class="form-text text-danger">Contraseña debe contener
+                    entre 5 y 10 caracteres</span>
+            </div>
+            <button class="w-100 btn btn-primary mb-3" type="submit" (click)="iniciarSesion()"
+                [disabled]="login.invalid">Login</button>
+            <label>
+                ¿No tienes una cuenta?
+            </label>
+            <button type="button" class="btn btn-link ms-2 me-2" routerLink="/registro">Registrarse</button>
+        </form>
+    </div>
+</div>
